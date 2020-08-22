@@ -13,10 +13,10 @@ const List = ({ list }) => {
                 <li className = "collection-item" key = { l.id } >
                     { l.entry }
                     <Link className = "secondary-content" to='/'>
-                        <i className = "material-icons">Edit</i>
+                        <i className = "material-icons">edit</i>
                     </Link>
                     <Link className = "secondary-content" to='/'>
-                        <i className = 'material-icons'>Delete</i>
+                        <i className = 'material-icons'>delete</i>
                     </Link>
                 </li>
             )
@@ -30,3 +30,5 @@ const List = ({ list }) => {
             </div>
         )
 }
+
+export default List;
