@@ -25,7 +25,7 @@ export default class Home extends React.Component {
         return(
             <div className = "container">
                 <Todo addAnEntry = { this.addAnEntry } />
-                <List list={ this.state.goals } />
+                <List list={ this.state.list } />
             </div>
         )
     }
