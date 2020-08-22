@@ -23,7 +23,7 @@ export default class Todo extends React.Component {
                         onChange={ e=> {this.setState({ entry: e.target.value })}
                         }
                         value={ this.state.entry }
-                        require />
+                        required />
                         <div className='center'>
                             <button className='btn btn-large blue' 
                                 onClick={this.getEntry }> Add Entry 
