@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 
-const List = ({ list }) => {
-
+const List = ( props ) => {
+    let list = props.entry
     let entry;
 
     list.length === 0 ? 
@@ -31,4 +32,11 @@ const List = ({ list }) => {
         )
 }
 
-export default List;
+// This was used so we could get the data in the store, which is then attached to the props of the component.
+const mapStateToProps = state => {
+    return {
+        entry: state.list
+    }
+}
+
+export default connect(mapStateToProps)(List);
