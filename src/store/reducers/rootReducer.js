@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 import createEntry from './createEntry';
+import getEntry from './createStore'
+import { firestoreReducer } from 'redux-firestore'
 
 const rootReducer = combineReducers({
+    firestoreList: firestoreReducer,
+    getEntry: getEntry,
     list: createEntry
 })
 
