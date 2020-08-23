@@ -6,18 +6,25 @@ import * as serviceWorker from './serviceWorker';
 
 // these steps help us create a store and also connect our application to the store. i.e we create a store with the createStore function from redux, and then, connect the store to our application with the Provider component which takes the store we have created as a props.
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers/rootReducer';
 
-const Store = createStore(rootReducer);
+import { reduxFirestore, getFirestore } from 'redux-firestore'
+import thunk from 'redux-thunk'
+import firebase from './config/'
+
+const Store = createStore(rootReducer, compose(
+  applyMiddleware(thunk.withExtraArgument({ getFirestore })),
+  reduxFirestore(firebase)
+));
 
 ReactDOM.render(
   <React.StrictMode>
   <Provider store={ Store }>
     <App />
     </Provider>
-  </React.StrictMode>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
